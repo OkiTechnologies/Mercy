@@ -1,0 +1,16 @@
+/.idea
+/.vagrant
+/.vscode
+/node_modules
+public/storage
+storage/*.key
+vendor/
+.env
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+*.7z
+resources/scr/*
