@@ -13,4 +13,4 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 *.7z
-resources/scr/*
+resources/js/Layouts/*/src/
