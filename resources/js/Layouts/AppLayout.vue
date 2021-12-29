@@ -19,14 +19,16 @@
 
               <!-- Navigation Links -->
               <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <jet-nav-link class="" :href="route('home')">
+                  <i class="fas fa-home"></i>&nbsp;Home
+                </jet-nav-link>
+
                 <jet-nav-link
                   :href="route('dashboard')"
                   :active="route().current('dashboard')"
                 >
                   Dashboard
                 </jet-nav-link>
-
-                <jet-nav-link class="" :href="route('home')"> Home </jet-nav-link>
 
                 <jet-nav-link
                   :href="route('admin.user.index')"
