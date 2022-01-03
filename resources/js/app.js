@@ -3,10 +3,14 @@ require('./bootstrap');
 // Extra
 import jQuery from "jquery";
 window.jQuery = window.$ = jQuery;
-import "bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "@fortawesome/fontawesome-free";
-import "@fortawesome/fontawesome-free/css/all.min.css";
+
+// import "bootstrap";
+// import "bootstrap/dist/js/bootstrap.js";
+
+// import "font-awesome/css/font-awesome.min.css";
+
+// import 'owl.carousel/dist/assets/owl.carousel.css';
+// import 'owl.carousel';
 /* ----------------------------------------------------- */
 
 import { createApp, h } from 'vue';
