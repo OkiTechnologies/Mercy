@@ -122,7 +122,6 @@
 <script>
 import { defineComponent } from 'vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import 'bootstrap';
 import Button from '../../Jetstream/Button.vue';
 
 export default defineComponent({
