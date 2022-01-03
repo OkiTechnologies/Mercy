@@ -15,23 +15,24 @@
 		"@inertiajs/progress": "^0.2.6",
 		"@tailwindcss/forms": "^0.2.1",
 		"@tailwindcss/typography": "^0.3.0",
-		"@vue/compiler-sfc": "^3.0.5",
+		"@vue/compiler-sfc": "^3.2.26",
 		"axios": "^0.21",
 		"laravel-mix": "^6.0.6",
 		"lodash": "^4.17.19",
-		"postcss": "^8.1.14",
+		"postcss": "^8.4.5",
 		"postcss-import": "^12.0.1",
 		"tailwindcss": "^2.0.1",
-		"vue": "^3.0.5",
+		"vue": "^3.2.26",
 		"vue-loader": "^16.1.2"
 	},
 	"dependencies": {
-		"@fortawesome/fontawesome-free": "^5.15.4",
 		"@popperjs/core": "^2.11.0",
-		"animate.css": "^4.1.1",
-		"apexcharts": "^3.32.0",
-		"bootstrap": "^5.1.3",
+		"animate.css": "^3.5.1",
+		"apexcharts": "^3.32.1",
+		"bootstrap": "^3.4.1",
+		"font-awesome": "^4.7.0",
 		"jquery": "^3.6.0",
+		"owl.carousel": "^2.3.4",
 		"select-picker": "^0.3.2"
 	}
 }
