@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\EventController as ApiEventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,9 @@ Route::get('/', function (Request $request) {
 
 # Auth: Login
 Route::post('login', [LoginController::class, 'login'])->name('api.login');
+
+Route::get('events', [ApiEventController::class, 'index'])->name('api.event.index');
+Route::get('event/next', [ApiEventController::class, 'next'])->name('api.event.next');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 	return $request->user();
