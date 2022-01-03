@@ -16,10 +16,18 @@ use Illuminate\Support\Facades\Route;
  *
  */
 
-Route::get('/', [AppController::class, 'home'])->name('home');
+# Site
+Route::domain(env('APP_DOMAIN'))->group(function () {
+	Route::get('/', [AppController::class, 'home'])->name('home');
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-	Route::get('/dashboard', [AppController::class, 'dashboard'])->name('dashboard');
+	Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+		// code
+	});
+});
+
+# Office
+Route::domain(env('APP_DASHBOARD'))->middleware(['auth:sanctum', 'verified'])->group(function () {
+	Route::get('/', [AppController::class, 'dashboard'])->name('dashboard');
 
 	Route::resource('user', UserController::class, [])->names('admin.user');
 	// Route::get('/user/{user}/permissions', [UserController::class, 'getAllPermissions'])->name('api.user.permissions');
