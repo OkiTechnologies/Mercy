@@ -5,12 +5,15 @@
         <div class="gc_event_icon_wrapper">
           <img :src="asset + 'images/header/event_icon.png'" alt="icon" />
         </div>
+
         <div class="gc_index2_event_heading_wrapper">
           <h3>Next Upcoming Event</h3>
         </div>
+
         <div class="gc_event_heading_cont_wrapper">
-          <h4>Sharing Our Faith & Love To Children</h4>
+          <h4>{{ next_event.title }}</h4>
         </div>
+
         <div class="gc_event_heading_cont_time_wrapper">
           <p><i class="fa fa-calendar"></i> 14 May 2017</p>
           <p class="event_time"><i class="fa fa-clock-o"></i> @ 8 to 11 AM</p>
@@ -49,11 +52,20 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
-      asset: this.$page.props.app.asset + '/guest/'
+      asset: this.$page.props.app.asset + '/guest/',
+      next_event: Object
     };
+  },
+
+  mounted() {
+    axios
+      .get(route('api.event.next'))
+      .then((response) => (this.next_event = response.data.next_event));
   }
 };
 </script>
