@@ -9,9 +9,10 @@
                 <img
                   :src="asset + 'images/header/logo.png'"
                   alt="Logo"
-                  title="Grace Church"
-                  class="img-responsive"
+                  :title="app.name"
+                  class="img-responsive hidden d-none"
                 />
+                <h1 class="h3">{{ app.name }}</h1>
               </a>
             </div>
           </div>
@@ -343,6 +344,7 @@
 export default {
   data() {
     return {
+      app: this.$page.props.app,
       asset: this.$page.props.app.asset + '/guest/'
     };
   }
