@@ -21,7 +21,7 @@ class Event extends Model {
 		// code
 	}
 
-	function schedules() {
-		return [];
+	function timelines() {
+		return $this->morphMany(Timeline::class, 'timeable');
 	}
 }
