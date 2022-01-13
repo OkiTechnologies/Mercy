@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="next_event">
     <div class="gc_upcoming_event_main_wrapper">
       <div class="gc_upcoming_event_left_wrapper">
         <div class="gc_event_icon_wrapper">
