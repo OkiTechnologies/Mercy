@@ -14,7 +14,7 @@ class Event extends Model {
 	 * @var string[]
 	 */
 	protected $fillable = [
-		'title', 'slud', 'description',
+		'title', 'slug', 'description',
 	];
 
 	function venues() {
