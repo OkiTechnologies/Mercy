@@ -19,14 +19,16 @@ class CreateTimelinesTable extends Migration {
 			$table->string('subtitle', 140)->nullable();
 			$table->string('slug');
 			$table->text('description')->nullable();
-			$table->timestamp('started_at');
-			$table->timestamp('ended_at')->nullable();
+			$table->date('started_date');
+			$table->time('started_time');
+			$table->date('ended_date')->nullable();
+			$table->time('ended_time')->nullable();
 			$table->enum('repeat', ['day', 'week', 'month', 'year'])->nullable();
 			$table->integer('interval')->nullable()->default(0);
 			$table->json('tags')->nullable();
 			$table->timestamps();
 
-			$table->unique(['timeable_type', 'timeable_id', 'venue_id', 'title', 'started_at'], 'timeline');
+			$table->unique(['timeable_type', 'timeable_id', 'venue_id', 'title', 'started_date', 'started_time'], 'timeline');
 		});
 	}
 
