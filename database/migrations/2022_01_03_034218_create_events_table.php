@@ -16,11 +16,9 @@ class CreateEventsTable extends Migration {
 			$table->string('title', 140);
 			$table->string('slug', 140);
 			$table->text('description')->nullable();
-			$table->timestamp('started_at')->nullable();
-			$table->timestamp('ended_at')->nullable();
 			$table->timestamps();
 
-			$table->unique(['title', 'created_at'], 'event');
+			$table->unique(['title'], 'event');
 		});
 	}
 
