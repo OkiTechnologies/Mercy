@@ -5,14 +5,13 @@
     <div class="min-h-screen bg-gray-100">
       <Preloader />
       <TopScroll />
+
       <TopHeader />
       <Header />
-      <upcoming-event />
 
-      <!-- Page Content -->
-      <main>
+      <section>
         <slot></slot>
-      </main>
+      </section>
     </div>
   </div>
 </template>
