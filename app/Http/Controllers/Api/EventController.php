@@ -4,17 +4,24 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\Timeline;
 use Illuminate\Http\Request;
 
 class EventController extends Controller {
+
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function index() {
+	public function next() {
+		$next_timeline = Timeline::where('started_date', '>', now())
+			->orderBy('started_date')
+			->first()
+			->load(['timeable']);
+
 		return response([
-			'events' => Event::all(),
+			'next_event' => $next_timeline
 		]);
 	}
 
@@ -23,9 +30,9 @@ class EventController extends Controller {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function next() {
+	public function index() {
 		return response([
-			'next_event' => Event::all()->last(),
+			'events' => Event::all(),
 		]);
 	}
 
