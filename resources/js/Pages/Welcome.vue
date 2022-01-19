@@ -1,8 +1,8 @@
 <template>
   <guest-layout title="Welcome">
-    <div
-      class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0"
-    >
+    <div class="">
+      <!-- upcoming-event /-->
+
       <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
         <a
           v-if="$page.props.user"
@@ -37,12 +37,14 @@
 import { defineComponent } from 'vue';
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
+import UpcomingEvent from '../Layouts/Guest/UpcomingEvent.vue';
 
 export default defineComponent({
   components: {
     Head,
     Link,
-    GuestLayout
+    GuestLayout,
+    UpcomingEvent
   },
 
   props: {
