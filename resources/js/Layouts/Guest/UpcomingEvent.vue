@@ -1,5 +1,5 @@
 <template>
-  <div v-if="next_event">
+  <div v-if="Object.keys(next_event).length">
     <div class="gc_upcoming_event_main_wrapper">
       <div class="gc_upcoming_event_left_wrapper">
         <div class="gc_event_icon_wrapper">
@@ -7,16 +7,23 @@
         </div>
 
         <div class="gc_index2_event_heading_wrapper">
-          <h3>Next Upcoming Event</h3>
+          <h3 class="d-none hidden">Next Upcoming Event</h3>
+          <h3>{{ next_event.timeable.title }}</h3>
         </div>
 
-        <div class="gc_event_heading_cont_wrapper">
+        <div
+          class="gc_event_heading_cont_wrapper d-block"
+          v-if="next_event.title !== next_event.timeable.title"
+        >
           <h4>{{ next_event.title }}</h4>
         </div>
 
-        <div class="gc_event_heading_cont_time_wrapper">
-          <p><i class="fa fa-calendar"></i> 14 May 2017</p>
-          <p class="event_time"><i class="fa fa-clock-o"></i> @ 8 to 11 AM</p>
+        <div class="gc_event_heading_cont_time_wrapper d-block" style="clear: both">
+          <p><i class="fa fa-calendar"></i> {{ next_event.started_date }}</p>
+          <p class="event_time">
+            <i class="fa fa-clock-o"></i>
+            @ {{ next_event.started_time }} to {{ next_event.ended_time }}
+          </p>
         </div>
       </div>
     </div>
@@ -55,13 +62,15 @@
 import axios from 'axios';
 
 export default {
+  props: {},
+
   data() {
     return {
       asset: this.$page.props.app.asset + '/guest/',
       next_event: Object
     };
   },
-
+  computed: {},
   mounted() {
     axios
       .get(route('api.event.next'))
