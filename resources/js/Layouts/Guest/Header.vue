@@ -17,9 +17,11 @@
             </div>
           </div>
         </div>
+
         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
           <div class="header-area hidden-menu-bar stick" id="sticker">
             <!-- mainmenu start -->
+            <!-- Search -->
             <div class="gc_right_menu hidden-xs hidden-sm">
               <ul>
                 <li id="search_button">
@@ -51,9 +53,46 @@
                 </li>
               </ul>
             </div>
-            <div class="mainmenu">
+
+            <!-- Menus -->
+            <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+              <a
+                v-if="$page.props.user"
+                :href="route('dashboard')"
+                class="text-sm text-gray-700 underline"
+                target="_blank"
+              >
+                <i class="fas fa-desktop"></i>&nbsp;Dashboard
+              </a>
+
+              <template v-else>
+                <Link :href="route('login')" class="text-sm text-gray-700 underline">
+                  Log in
+                </Link>
+
+                <Link
+                  v-if="canRegister"
+                  :href="route('register')"
+                  class="ml-4 text-sm text-gray-700 underline"
+                >
+                  Register
+                </Link>
+              </template>
+            </div>
+
+            <div class="mainmenu" v-if="app.menus">
               <ul>
-                <li class="has-mega gc_main_navigation">
+                <li
+                  class="gc_main_navigation parent"
+                  v-for="menu in app.menus"
+                  :key="menu.name"
+                >
+                  <a :href="menu.params.href" class="gc_main_navigation">
+                    {{ menu.params.label }}
+                  </a>
+                </li>
+
+                <li class="gc_main_navigation has-mega hidden">
                   <a href="#" class="gc_main_navigation"> Home</a>
                   <!-- mega menu start -->
                   <ul>
@@ -62,7 +101,8 @@
                     <li class="parent"><a href="index3.html">Home3</a></li>
                   </ul>
                 </li>
-                <li class="has-mega gc_main_navigation">
+
+                <li class="gc_main_navigation has-mega hidden">
                   <a href="#" class="gc_main_navigation"> Pages</a>
                   <!-- mega menu start -->
                   <ul>
@@ -71,7 +111,8 @@
                     <li class="parent"><a href="causes_single.html">Causes Single</a></li>
                   </ul>
                 </li>
-                <li class="has-mega gc_main_navigation">
+
+                <li class="gc_main_navigation has-mega hidden">
                   <a href="#" class="gc_main_navigation"> event</a>
                   <!-- mega menu start -->
                   <ul>
@@ -79,7 +120,8 @@
                     <li class="parent"><a href="event_single.html">event Single</a></li>
                   </ul>
                 </li>
-                <li class="has-mega gc_main_navigation">
+
+                <li class="gc_main_navigation has-mega hidden">
                   <a href="#" class="gc_main_navigation"> sermons</a>
                   <!-- mega menu start -->
                   <ul>
@@ -89,7 +131,8 @@
                     </li>
                   </ul>
                 </li>
-                <li class="has-mega gc_main_navigation">
+
+                <li class="gc_main_navigation has-mega hidden">
                   <a href="#" class="gc_main_navigation"> Gallery</a>
                   <!-- mega menu start -->
                   <ul>
@@ -98,7 +141,8 @@
                     <li class="parent"><a href="gallery_IV.html">Gallery-IV</a></li>
                   </ul>
                 </li>
-                <li class="has-mega gc_main_navigation">
+
+                <li class="gc_main_navigation has-mega hidden">
                   <a href="#" class="gc_main_navigation"> Blog</a>
                   <!-- mega menu start -->
                   <ul>
@@ -108,13 +152,15 @@
                     <li class="parent"><a href="blog_single.html">Blog-Single</a></li>
                   </ul>
                 </li>
-                <li class="gc_main_navigation parent">
+
+                <li class="gc_main_navigation parent hidden">
                   <a href="contact.html" class="gc_main_navigation">Contact Us</a>
                 </li>
               </ul>
             </div>
-            <!-- mainmenu end -->
-            <!-- mobile menu area start -->
+            <!-- .mainmenu -->
+
+            <!-- mobile menu -->
             <header class="mobail_menu">
               <div class="container-fluid">
                 <div class="row">
