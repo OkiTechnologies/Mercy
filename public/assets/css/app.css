@@ -1151,6 +1151,10 @@ select {
 	margin-left: auto;
 	margin-right: auto;
 }
+.my-2 {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
 .ml-3 {
 	margin-left: 0.75rem;
 }
@@ -1225,6 +1229,12 @@ select {
 }
 .mb-3 {
 	margin-bottom: 0.75rem;
+}
+.mr-1 {
+	margin-right: 0.25rem;
+}
+.mb-2 {
+	margin-bottom: 0.5rem;
 }
 .block {
 	display: block;
