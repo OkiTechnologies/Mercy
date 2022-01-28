@@ -20,8 +20,6 @@ class CreatePostsTable extends Migration {
 			$table->boolean('status')->nullable();
 			$table->foreignId('posted_by')->nullable()->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
 			$table->string('image')->nullable();
-			// $table->integer('like')->nullable();
-			// $table->integer('dislike')->nullable();
 			$table->timestamps();
 		});
 	}
