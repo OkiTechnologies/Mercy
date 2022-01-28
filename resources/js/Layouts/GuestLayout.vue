@@ -6,12 +6,17 @@
       <Preloader />
       <TopScroll />
 
-      <TopHeader />
+      <!-- Header -->
+      <HeaderTop />
       <Header />
 
-      <section>
+      <main>
         <slot></slot>
-      </section>
+      </main>
+
+      <!-- Footer & Copyright -->
+      <Footer />
+      <copyright />
     </div>
   </div>
 </template>
@@ -21,10 +26,12 @@ import { defineComponent } from 'vue';
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import Preloader from '@/Layouts/Guest/Preloader.vue';
 import TopScroll from '@/Layouts/Guest/TopScroll.vue';
-import TopHeader from '@/Layouts/Guest/TopHeader.vue';
+import HeaderTop from '@/Layouts/Guest/HeaderTop.vue';
 import Header from '@/Layouts/Guest/Header.vue';
 import Slider from '@/Layouts/Guest/Slider.vue';
 import UpcomingEvent from './Guest/UpcomingEvent.vue';
+import Copyright from './Guest/Copyright.vue';
+import Footer from './Guest/Footer.vue';
 
 export default defineComponent({
   components: {
@@ -32,10 +39,12 @@ export default defineComponent({
     Link,
     Preloader,
     TopScroll,
-    TopHeader,
+    HeaderTop,
     Header,
     Slider,
-    UpcomingEvent
+    UpcomingEvent,
+    Copyright,
+    Footer
   },
 
   props: {
@@ -45,6 +54,7 @@ export default defineComponent({
   data() {
     return {
       // user_id: this.$page.props.user.id,
+      app: this.$page.props.app,
       asset: this.$page.props.app.asset + '/guest/'
     };
   },
