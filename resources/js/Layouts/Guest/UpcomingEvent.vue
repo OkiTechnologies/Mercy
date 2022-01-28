@@ -70,7 +70,6 @@ export default {
       next_event: Object
     };
   },
-  computed: {},
   mounted() {
     axios
       .get(route('api.event.next'))
