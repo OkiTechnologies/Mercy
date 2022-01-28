@@ -1,35 +1,10 @@
 <template>
   <guest-layout title="Welcome">
-    <div class="">
-      <!-- upcoming-event /-->
+    <gallery />
 
-      <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-        <a
-          v-if="$page.props.user"
-          :href="route('dashboard')"
-          class="text-sm text-gray-700 underline"
-          target="_blank"
-        >
-          <i class="fas fa-desktop"></i>&nbsp;Dashboard
-        </a>
+    <!-- upcoming-event /-->
 
-        <template v-else>
-          <Link :href="route('login')" class="text-sm text-gray-700 underline">
-            Log in
-          </Link>
-
-          <Link
-            v-if="canRegister"
-            :href="route('register')"
-            class="ml-4 text-sm text-gray-700 underline"
-          >
-            Register
-          </Link>
-        </template>
-      </div>
-
-      <section>...welcome!</section>
-    </div>
+    <section class="container py-2 mt-4 mb-4 shadow rounded">...welcome!</section>
   </guest-layout>
 </template>
 
@@ -38,20 +13,38 @@ import { defineComponent } from 'vue';
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import UpcomingEvent from '../Layouts/Guest/UpcomingEvent.vue';
+import Testimonies from '../Layouts/Guest/Testimonies.vue';
+import Gallery from '../Layouts/Guest/Gallery.vue';
 
 export default defineComponent({
   components: {
     Head,
     Link,
     GuestLayout,
-    UpcomingEvent
+    UpcomingEvent,
+    Testimonies,
+    Gallery
   },
-
   props: {
     canLogin: Boolean,
     canRegister: Boolean,
     laravelVersion: String,
     phpVersion: String
+  },
+  data() {
+    return {
+      settings: Object
+    };
+  },
+  mounted() {
+    axios
+      .get(route('api.setting.index'))
+      .then((response) => (this.settings = response.data.settings));
+  },
+  methods: {
+    setting($name) {
+      // code
+    }
   }
 });
 </script>
